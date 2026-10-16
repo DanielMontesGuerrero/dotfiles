@@ -41,6 +41,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mg979/vim-visual-multi', {'branch' : 'master'}
 Plug 'tpope/vim-surround'
+Plug 'sindrets/diffview.nvim'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Plug 'vim-scripts/AutoComplPop'
@@ -50,6 +51,8 @@ Plug 'neoclide/coc.nvim', {'branch' : 'release'}
 Plug 'alvan/vim-closetag'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': 'release' }
+Plug 'folke/snacks.nvim'
+Plug 'coder/claudecode.nvim'
 "" Status bar
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
@@ -71,6 +74,7 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-gitbranch'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 "" Latex
 Plug 'lervag/vimtex'
 "" Godot
@@ -142,6 +146,7 @@ nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>mp :MarkdownPreviewToggle<CR>
 nmap <Leader>ff :Telescope find_files<CR>
 nmap <Leader>fs :Telescope live_grep<CR>
+nmap <Leader>cc :ClaudeCode<CR>
 
 autocmd FileType python BracelessEnable +fold
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -155,6 +160,6 @@ function! GitBranch()
 	endif
 endfunction
 
-autocmd BufNewFile *.cpp 0r /home/daniel/Documents/ICPC/main.cpp
+lua require('claudecode').setup({git_repo_cwd = true})
 
-source /home/daniel/.config/nvim/coc.vimrc
+source /Users/danielmontes/.config/nvim/coc.vimrc
